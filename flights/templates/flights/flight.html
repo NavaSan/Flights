@@ -1,0 +1,36 @@
+{% extends "flights/layout.html" %}
+
+{% block body %}
+<a href="{% url 'logoutView' %}" class="btn btn-danger">Log Out</a>
+    <h1>Flight {{ flights.id }}</h1>
+    <ul>
+        <li><b>Origin:</b> {{ flights.origin }}</li>
+        <li><b>Destination:</b> {{ flights.destination }}</li>
+        <li><b>Duration:</b> {{ flights.duration }} min.</li>
+    </ul>
+
+    <h2>Passengers:</h2>
+    <ul>
+        {% for passanger in passangers %}
+            <li>{{ passanger }}</li>
+        {% empty %}
+            <li>No Passengers</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Passengers:</h2>
+    <div class="d-flex justify-content-center">
+        <form action="{% url 'book' flights.id %}" class="form-control w-75" method="post">
+            {% csrf_token %}
+            <select name="passenger" id="" class="form-control">
+                {% for passenger in non_passengers %}
+                    <option value="{{ passenger.id }}">{{ passenger }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" class="btn btn-success mt-2" value="Submit">
+        </form>
+    </div>
+    
+
+    <a href="{% url 'index' %}" class="btn btn-primary">All Flights</a>
+{% endblock %}

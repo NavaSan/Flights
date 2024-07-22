@@ -1,0 +1,25 @@
+{% extends "flights/layout.html" %}
+
+{% block body %}
+<a href="{% url 'logoutView' %}" class="btn btn-danger">Log Out</a>
+    <h2 class="text-center">Welcome!</h2>
+    <h3 class="text-center">This is all flights available</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td><b>Flight</b></td>
+                <td><b>Origin</b></td>
+                <td><b>Destination</b></td>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for flight in flights %}
+                <tr>
+                    <td><a href="{% url 'flight' flight.id %}" class="text-decoration-none">Flight {{ flight.id }}</a></td>
+                    <td>{{flight.origin}}</td>
+                    <td>{{ flight.destination }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
