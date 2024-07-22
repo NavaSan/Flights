@@ -16,7 +16,7 @@ encontrar todo dentro del archivo views.py en la funcion loginView donde trabajo
 
 ## Vistas de Index y flights
 
-![127.0.0.1_8000_flights_index.png](img%2F127.0.0.1_8000_flights_index.png)
+![127.0.0.1_8000_flights_index.png](img%2F127.0.0.1_8000_flights.png)
 
 ![127.0.0.1_8000_flights_1.png](img%2F127.0.0.1_8000_flights_1.png)
 
